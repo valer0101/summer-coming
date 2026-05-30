@@ -1,6 +1,9 @@
 // Entry point for all browser interactivity.
 import { validateRegistration } from './validation.js';
 
+// ЗАПОЛНИТЬ: вставить URL развёрнутого Google Apps Script Web App (см. README).
+const REGISTRATION_ENDPOINT = 'PASTE_APPS_SCRIPT_WEB_APP_URL_HERE';
+
 /* ---------- Gallery lightbox ---------- */
 function initLightbox() {
   const box = document.getElementById('lightbox');
@@ -30,7 +33,89 @@ function initFaq() {
   });
 }
 
+/* ---------- Registration form ---------- */
+function readFileAsBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = String(reader.result);
+      resolve(result.slice(result.indexOf(',') + 1)); // strip "data:...;base64,"
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function showErrors(form, errors) {
+  form.querySelectorAll('.error').forEach((el) => { el.textContent = ''; });
+  Object.entries(errors).forEach(([field, msg]) => {
+    const el = form.querySelector(`[data-error-for="${field}"]`);
+    if (el) el.textContent = msg;
+  });
+}
+
+function initRegForm() {
+  const form = document.getElementById('regForm');
+  if (!form) return;
+  const status = document.getElementById('regStatus');
+  const submitBtn = form.querySelector('.reg-form__submit');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = '';
+    status.className = 'reg-form__status';
+
+    const data = {
+      childName:   form.childName.value,
+      age:         form.age.value,
+      parentName:  form.parentName.value,
+      parentPhone: form.parentPhone.value,
+      location:    form.location.value,
+      health:      form.health.value,
+      comment:     form.comment.value,
+      consent:     form.consent.checked,
+    };
+
+    const { valid, errors } = validateRegistration(data);
+    showErrors(form, errors);
+    if (!valid) {
+      status.textContent = 'Խնդրում ենք լրացնել պարտադիր դաշտերը։';
+      status.classList.add('is-error');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    status.textContent = 'Ուղարկվում է…';
+
+    try {
+      const file = form.birthCert.files[0];
+      const payload = { ...data };
+      if (file) {
+        payload.fileName = file.name;
+        payload.fileMime = file.type;
+        payload.fileData = await readFileAsBase64(file);
+      }
+      // Apps Script Web Apps reject custom JSON headers (CORS preflight);
+      // send as text/plain to stay a "simple request".
+      await fetch(REGISTRATION_ENDPOINT, {
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      });
+      form.reset();
+      status.textContent = 'Շնորհակալություն։ Ձեր հայտը ստացվեց — մենք կզանգահարենք։';
+      status.classList.add('is-ok');
+    } catch (err) {
+      status.textContent = 'Սխալ. չհաջողվեց ուղարկել։ Փորձեք կրկին կամ զանգահարեք մեզ։';
+      status.classList.add('is-error');
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initFaq();
+  initRegForm();
 });

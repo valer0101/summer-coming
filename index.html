@@ -202,7 +202,66 @@
     </div>
   </div>
 </section>
-    <section id="register"      class="section section--tint"></section>
+    <section id="register" class="section section--tint">
+  <div class="container register">
+    <span class="label">Գրանցում</span>
+    <h2>Գրանցեք ձեր երեխային</h2>
+    <p class="section__lead">Սա նախնական հայտ է։ Մենք կզանգահարենք՝ հաստատելու համար։</p>
+
+    <form id="regForm" class="reg-form" novalidate>
+      <div class="field">
+        <label for="childName">Երեխայի անուն, ազգանուն *</label>
+        <input id="childName" name="childName" type="text" autocomplete="name">
+        <small class="error" data-error-for="childName"></small>
+      </div>
+      <div class="field">
+        <label for="age">Տարիք (8–13) *</label>
+        <input id="age" name="age" type="number" min="8" max="13" inputmode="numeric">
+        <small class="error" data-error-for="age"></small>
+      </div>
+      <div class="field">
+        <label for="parentName">Ծնողի անուն *</label>
+        <input id="parentName" name="parentName" type="text">
+        <small class="error" data-error-for="parentName"></small>
+      </div>
+      <div class="field">
+        <label for="parentPhone">Ծնողի հեռախոս *</label>
+        <input id="parentPhone" name="parentPhone" type="tel" inputmode="tel" autocomplete="tel">
+        <small class="error" data-error-for="parentPhone"></small>
+      </div>
+      <div class="field">
+        <label for="location">Որտեղի՞ց եք *</label>
+        <select id="location" name="location">
+          <option value="">— Ընտրեք —</option>
+          <option value="Աշտարակ">Աշտարակ</option>
+          <option value="Կոշ">Կոշ</option>
+          <option value="Օհանավան">Օհանավան</option>
+        </select>
+        <small class="error" data-error-for="location"></small>
+      </div>
+      <div class="field">
+        <label for="health">Առողջություն / ալերգիա</label>
+        <textarea id="health" name="health" rows="2"></textarea>
+      </div>
+      <div class="field">
+        <label for="birthCert">Ծննդյան վկայականի պատճեն (ըստ ցանկության)</label>
+        <input id="birthCert" name="birthCert" type="file" accept="image/*,application/pdf">
+        <small class="hint">Կարող եք կցել հիմա կամ բերել պատճենը ճամբար գալիս։</small>
+      </div>
+      <div class="field">
+        <label for="comment">Մեկնաբանություն</label>
+        <textarea id="comment" name="comment" rows="2"></textarea>
+      </div>
+      <div class="field field--check">
+        <label><input id="consent" name="consent" type="checkbox"> Ես՝ որպես ծնող, համաձայն եմ երեխայի մասնակցությանը *</label>
+        <small class="error" data-error-for="consent"></small>
+      </div>
+
+      <button type="submit" class="btn btn--primary reg-form__submit">Ուղարկել հայտը</button>
+      <p class="reg-form__status" id="regStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
   </main>
 
   <footer id="contacts" class="site-footer"></footer>

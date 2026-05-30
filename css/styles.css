@@ -188,3 +188,21 @@ a  { color: var(--accent-dark); }
 .faq__item summary::after { content: "+"; float: right; color: var(--accent); font-size: 22px; line-height: 1; }
 .faq__item[open] summary::after { content: "–"; }
 .faq__item p { padding-bottom: 14px; color: var(--muted); }
+
+/* ============ REGISTRATION FORM ============ */
+.reg-form { margin-top: 24px; max-width: 560px; display: grid; gap: 16px; }
+.field { display: grid; gap: 6px; }
+.field label { font-weight: 700; color: var(--text-soft); font-size: 15px; }
+.field input, .field select, .field textarea {
+  font: inherit; padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px;
+  background: #fff; color: var(--text); width: 100%; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.field--check label { display: flex; align-items: flex-start; gap: 10px; font-weight: 600; }
+.field--check input { width: auto; margin-top: 3px; }
+.hint { color: var(--muted); font-size: 13px; }
+.error { color: #c0392b; font-size: 13px; min-height: 1em; }
+.reg-form__submit { justify-self: start; margin-top: 6px; }
+.reg-form__status { font-weight: 700; min-height: 1.2em; }
+.reg-form__status.is-ok { color: #2f7a4d; }
+.reg-form__status.is-error { color: #c0392b; }
