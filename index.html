@@ -71,7 +71,26 @@
         </div>
       </div>
     </section>
-    <section id="gallery"       class="section"></section>
+    <section id="gallery" class="section">
+  <div class="container">
+    <span class="label">Լուսանկարներ</span>
+    <h2>Տեսեք, ինչպիսին է ճամբարը</h2>
+    <p class="section__lead">Անցած տարիների կադրեր։</p>
+    <div class="gallery">
+      <!-- ЗАПОЛНИТЬ: заменить src на реальные фото assets/images/camp-XX.jpg -->
+      <button class="gallery__item" data-full="assets/images/placeholder.svg"><img src="assets/images/placeholder.svg" alt="Ճամբարի կադր 1" loading="lazy"></button>
+      <button class="gallery__item" data-full="assets/images/placeholder.svg"><img src="assets/images/placeholder.svg" alt="Ճամբարի կադր 2" loading="lazy"></button>
+      <button class="gallery__item" data-full="assets/images/placeholder.svg"><img src="assets/images/placeholder.svg" alt="Ճամբարի կադր 3" loading="lazy"></button>
+      <button class="gallery__item" data-full="assets/images/placeholder.svg"><img src="assets/images/placeholder.svg" alt="Ճամբարի կադր 4" loading="lazy"></button>
+      <button class="gallery__item" data-full="assets/images/placeholder.svg"><img src="assets/images/placeholder.svg" alt="Ճամբարի կադր 5" loading="lazy"></button>
+      <button class="gallery__item" data-full="assets/images/placeholder.svg"><img src="assets/images/placeholder.svg" alt="Ճամբարի կադր 6" loading="lazy"></button>
+    </div>
+  </div>
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Փակել">✕</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="">
+  </div>
+</section>
     <section id="video"         class="section section--tint"></section>
     <section id="program"       class="section"></section>
     <section id="accommodation" class="section section--tint"></section>
