@@ -117,10 +117,22 @@ function initRegForm() {
   });
 }
 
+/* ---------- Hide sticky CTA when the register section is visible ---------- */
+function initStickyCta() {
+  const cta = document.getElementById('ctaSticky');
+  const target = document.getElementById('register');
+  if (!cta || !target || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => cta.classList.toggle('is-hidden', entry.isIntersecting));
+  }, { threshold: 0.15 });
+  io.observe(target);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initFaq();
   initRegForm();
+  initStickyCta();
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 });
