@@ -92,3 +92,18 @@ a  { color: var(--accent-dark); }
 .hero__facts span { background: rgba(255,255,255,0.92); color: var(--text-soft);
   font-size: 13px; font-weight: 600; padding: 7px 13px; border-radius: 999px; }
 .hero__cta { margin-top: 26px; }
+
+/* ============ CARDS GRID (values) ============ */
+.cards-grid { display: grid; grid-template-columns: 1fr; gap: var(--gap); margin-top: 28px; }
+@media (min-width: 560px){ .cards-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px){ .cards-grid { grid-template-columns: repeat(4,1fr); } }
+.vcard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 22px; box-shadow: var(--shadow-soft); }
+.vcard__ico { font-size: 30px; }
+.vcard h3 { margin-top: 10px; }
+.vcard p { margin-top: 6px; color: var(--muted); font-size: 15px; }
+
+/* ============ ELIGIBILITY ============ */
+.eligibility__places { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.eligibility__places span { background: var(--accent); color: #fff; font-weight: 800;
+  font-size: clamp(16px,3vw,20px); padding: 12px 26px; border-radius: 999px; }
