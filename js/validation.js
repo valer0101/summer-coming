@@ -19,8 +19,8 @@ export function validateRegistration(data = {}) {
   if (isBlank(data.childName))  errors.childName  = MSG.required;
   if (isBlank(data.parentName)) errors.parentName = MSG.required;
 
-  const age = Number(String(data.age).trim());
-  if (isBlank(data.age) || !Number.isFinite(age) || age < 8 || age > 13) {
+  const age = Number(String(data.age ?? '').trim());
+  if (!Number.isInteger(age) || age < 8 || age > 13) {
     errors.age = MSG.age;
   }
 
