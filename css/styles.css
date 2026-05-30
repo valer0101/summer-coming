@@ -140,3 +140,24 @@ a  { color: var(--accent-dark); }
   background: #fbe7d6; padding: 3px 10px; border-radius: 999px; font-size: 13px; }
 .day h3 { margin-top: 10px; font-size: 17px; }
 .day p { margin-top: 6px; color: var(--muted); font-size: 14px; }
+
+/* ============ FEATURE LIST (accommodation) ============ */
+.feature-list { display: grid; gap: 16px; margin-top: 24px; grid-template-columns: 1fr; }
+@media (min-width: 720px){ .feature-list { grid-template-columns: 1fr 1fr; } }
+.feature { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow-soft); }
+.feature__ico { font-size: 26px; }
+.feature h3 { font-size: 17px; }
+.feature p { margin-top: 4px; color: var(--muted); font-size: 14px; }
+
+/* ============ LEADERS ============ */
+.leaders__text { max-width: 60ch; margin-top: 12px; font-size: 17px; }
+.leaders__stats { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 26px; }
+.leaders__stats div { display: flex; flex-direction: column; }
+.leaders__stats strong { font-size: clamp(28px,5vw,40px); color: var(--accent-dark); }
+.leaders__stats span { color: var(--muted); font-size: 14px; }
+
+/* ============ BRING LIST ============ */
+.bring-list { columns: 2; column-gap: 28px; margin-top: 22px; padding-left: 18px; }
+@media (max-width: 480px){ .bring-list { columns: 1; } }
+.bring-list li { margin-bottom: 8px; }
