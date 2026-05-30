@@ -1,0 +1,61 @@
+/* ============ DESIGN TOKENS (retune the whole look here) ============ */
+:root {
+  --bg:           #fdf8f0;
+  --surface:      #ffffff;
+  --text:         #2b2419;
+  --text-soft:    #6b4a2e;
+  --muted:        #8a7256;
+  --border:       #efe2cf;
+  --accent:       #e9742f;
+  --accent-dark:  #c2541b;
+  --accent-2:     #f0a35a;
+
+  --radius:       16px;
+  --radius-lg:    22px;
+  --shadow:       0 10px 30px rgba(180,110,40,0.14);
+  --shadow-soft:  0 4px 14px rgba(120,80,30,0.10);
+
+  --container:    1080px;
+  --gap:          clamp(16px, 4vw, 28px);
+  --section-y:    clamp(48px, 9vw, 96px);
+
+  --font: -apple-system, "Segoe UI", "Noto Sans Armenian", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ============ RESET ============ */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { scroll-behavior: smooth; }
+img, svg, video { display: block; max-width: 100%; height: auto; }
+
+/* ============ BASE ============ */
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { color: var(--text-soft); line-height: 1.15; letter-spacing: -0.4px; }
+h2 { font-size: clamp(26px, 5vw, 38px); }
+h3 { font-size: clamp(18px, 3vw, 22px); }
+p  { color: var(--text); }
+a  { color: var(--accent-dark); }
+
+/* ============ LAYOUT HELPERS ============ */
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: clamp(16px, 5vw, 32px); }
+.section { padding-block: var(--section-y); }
+.section--tint { background: #fbf2e4; }
+.section__lead { color: var(--muted); max-width: 60ch; margin-top: 10px; }
+.label { text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; font-weight: 700; color: var(--accent-dark); }
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-block; font-weight: 800; font-size: 16px;
+  padding: 14px 28px; border-radius: 999px; border: 0; cursor: pointer;
+  text-decoration: none; transition: transform .08s ease, background .2s ease;
+}
+.btn--primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-soft); }
+.btn--primary:hover { background: var(--accent-dark); }
+.btn--on-accent { background: #fff; color: var(--accent-dark); }
+.btn:active { transform: translateY(1px); }
