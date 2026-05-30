@@ -123,3 +123,20 @@ a  { color: var(--accent-dark); }
 .lightbox__img { max-width: 92vw; max-height: 86vh; border-radius: 12px; }
 .lightbox__close { position: absolute; top: 16px; right: 18px; font-size: 26px; color: #fff;
   background: none; border: 0; cursor: pointer; }
+
+/* ============ VIDEO ============ */
+.video__frame { position: relative; margin-top: 22px; aspect-ratio: 16/9;
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); background:#000; }
+.video__frame iframe, .video__frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ============ PROGRAM (days) ============ */
+.days { list-style: none; padding: 0; margin-top: 26px; display: grid; gap: 14px;
+  grid-template-columns: 1fr; }
+@media (min-width: 640px){ .days { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 980px){ .days { grid-template-columns: repeat(5,1fr); } }
+.day { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px; box-shadow: var(--shadow-soft); }
+.day__n { display: inline-block; font-weight: 800; color: var(--accent-dark);
+  background: #fbe7d6; padding: 3px 10px; border-radius: 999px; font-size: 13px; }
+.day h3 { margin-top: 10px; font-size: 17px; }
+.day p { margin-top: 6px; color: var(--muted); font-size: 14px; }
