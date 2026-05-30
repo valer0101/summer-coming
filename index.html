@@ -8,8 +8,39 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Sections added in later tasks -->
-  <main id="top"></main>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <span class="site-header__logo">⛺ Ճամբար</span>
+      <nav class="site-nav">
+        <a href="#about">Ճամբարի մասին</a>
+        <a href="#gallery">Լուսանկարներ</a>
+        <a href="#program">Ծրագիր</a>
+        <a href="#faq">Հարցեր</a>
+      </nav>
+      <a href="#register" class="btn btn--primary btn--sm">Գրանցվել</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section id="hero"          class="hero"></section>
+    <section id="about"         class="section"></section>
+    <section id="eligibility"   class="section section--tint"></section>
+    <section id="gallery"       class="section"></section>
+    <section id="video"         class="section section--tint"></section>
+    <section id="program"       class="section"></section>
+    <section id="accommodation" class="section section--tint"></section>
+    <section id="leaders"       class="section"></section>
+    <section id="bring"         class="section section--tint"></section>
+    <section id="price"         class="section"></section>
+    <section id="reviews"       class="section section--tint" hidden></section>
+    <section id="faq"           class="section"></section>
+    <section id="register"      class="section section--tint"></section>
+  </main>
+
+  <footer id="contacts" class="site-footer"></footer>
+
+  <a href="#register" class="cta-sticky btn btn--primary" id="ctaSticky">Գրանցվել</a>
+
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

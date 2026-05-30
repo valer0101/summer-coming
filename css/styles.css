@@ -59,3 +59,18 @@ a  { color: var(--accent-dark); }
 .btn--primary:hover { background: var(--accent-dark); }
 .btn--on-accent { background: #fff; color: var(--accent-dark); }
 .btn:active { transform: translateY(1px); }
+
+/* ============ HEADER / NAV ============ */
+.site-header { position: sticky; top: 0; z-index: 40; background: rgba(253,248,240,0.92);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+.site-header__inner { display: flex; align-items: center; gap: 16px; min-height: 60px; }
+.site-header__logo { font-weight: 800; color: var(--text-soft); }
+.site-nav { display: none; gap: 22px; margin-left: auto; }
+.site-nav a { color: var(--text); text-decoration: none; font-weight: 600; font-size: 15px; }
+.site-nav a:hover { color: var(--accent-dark); }
+.btn--sm { padding: 9px 18px; font-size: 14px; margin-left: auto; }
+@media (min-width: 760px) {
+  .site-nav { display: flex; }
+  .btn--sm { margin-left: 0; }
+}
+.cta-sticky { display: none; }
