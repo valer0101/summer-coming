@@ -20,6 +20,17 @@ function initLightbox() {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !box.hidden) close(); });
 }
 
+/* ---------- FAQ: single-open accordion ---------- */
+function initFaq() {
+  const items = document.querySelectorAll('.faq__item');
+  items.forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (d.open) items.forEach((o) => { if (o !== d) o.open = false; });
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
+  initFaq();
 });
