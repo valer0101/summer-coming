@@ -157,6 +157,9 @@
       <li>Սրբիչ</li>
       <li>Ջրաման</li>
       <li>Անհրաժեշտ դեղորայք (եթե կա)</li>
+      <li>Տաք հագուստ</li>
+      <li>Սպորտային հագուստ</li>
+      <li>Գլխարկ (քեպի)</li>
       <!-- ЗАПОЛНИТЬ: добавить/убрать пункты при необходимости -->
     </ul>
   </div>
@@ -178,8 +181,10 @@
     <h2>Ծնողների կարծիքները</h2>
     <div class="reviews">
       <blockquote class="review">
-        <p>«ЗАПОЛНИТЬ: текст отзыва»</p>
-        <cite>— ЗАПОЛНИТЬ: имя</cite>
+        <!-- «ЗАПОЛНИТЬ: текст отзыва» -->
+        <!-- — ЗАПОЛНИТЬ: имя -->
+        <p></p>
+        <cite></cite>
       </blockquote>
       <!-- копировать .review для каждого отзыва -->
     </div>
@@ -190,6 +195,11 @@
     <span class="label">Հաճախ տրվող հարցեր</span>
     <h2>Հարցեր ծնողներից</h2>
     <div class="faq">
+      <details class="faq__item"><summary>Որտեղի՞ց ենք մեկնում։</summary>
+        <p>Մեկնում ենք Աշտարակից։ Հավաքատեղի՝
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Ashtarak,+Armenia" target="_blank" rel="noopener">բացել նավիգատորում 📍</a>։
+          <!-- ЗАПОЛНИТЬ: заменить ссылку на точную точку сбора (Google Maps → «Поделиться» → копировать ссылку) --></p>
+      </details>
       <details class="faq__item"><summary>Կարո՞ղ եմ կապ պահել երեխայիս հետ։</summary>
         <p>Այո։ Ղեկավարների հետ կապի համարը կտրամադրվի գրանցումից հետո։</p></details>
       <details class="faq__item"><summary>Որքա՞ն է տևում ճամբարը։</summary>
@@ -208,6 +218,12 @@
     <h2>Գրանցեք ձեր երեխային</h2>
     <p class="section__lead">Սա նախնական հայտ է։ Մենք կզանգահարենք՝ հաստատելու համար։</p>
 
+    <p class="reg-form__doc">
+      <!-- ЗАПОЛНИТЬ: вставить ссылку на PDF-форму согласия в href (файл положить в assets/). -->
+      <a class="reg-form__doc-link" href="#" download>📄 Ներբեռնել համաձայնության ձևը (PDF)</a>
+      <span class="hint">Լրացրեք և բերեք ձևը ճամբար գալիս։</span>
+    </p>
+
     <form id="regForm" class="reg-form" novalidate>
       <div class="field">
         <label for="childName">Երեխայի անուն, ազգանուն *</label>
@@ -218,6 +234,15 @@
         <label for="age">Տարիք (8–13) *</label>
         <input id="age" name="age" type="number" min="8" max="13" inputmode="numeric" aria-describedby="err-age">
         <small class="error" id="err-age" data-error-for="age"></small>
+      </div>
+      <div class="field">
+        <label for="gender">Սեռը *</label>
+        <select id="gender" name="gender" aria-describedby="err-gender">
+          <option value="">— Ընտրեք —</option>
+          <option value="Տղա">Տղա</option>
+          <option value="Աղջիկ">Աղջիկ</option>
+        </select>
+        <small class="error" id="err-gender" data-error-for="gender"></small>
       </div>
       <div class="field">
         <label for="parentName">Ծնողի անուն *</label>

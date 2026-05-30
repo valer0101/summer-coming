@@ -68,6 +68,7 @@ function initRegForm() {
     const data = {
       childName:   form.childName.value,
       age:         form.age.value,
+      gender:      form.gender.value,
       parentName:  form.parentName.value,
       parentPhone: form.parentPhone.value,
       location:    form.location.value,

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { validateRegistration, ALLOWED_LOCATIONS } from '../js/validation.js';
+import { validateRegistration, ALLOWED_LOCATIONS, ALLOWED_GENDERS } from '../js/validation.js';
 
 const valid = {
   childName: 'Աննա Պետրոսյան',
@@ -7,6 +7,7 @@ const valid = {
   parentName: 'Մարիամ Պետրոսյան',
   parentPhone: '+37491123456',
   location: 'Աշտարակ',
+  gender: 'Տղա',
   consent: true,
   health: '',
   comment: '',
@@ -70,5 +71,13 @@ describe('validateRegistration', () => {
     const { health, comment, ...withoutOptional } = valid;
     const r = validateRegistration(withoutOptional);
     expect(r.valid).toBe(true);
+  });
+
+  it('requires gender to be one of the two allowed values', () => {
+    expect(ALLOWED_GENDERS).toEqual(['Տղա', 'Աղջիկ']);
+    expect(validateRegistration({ ...valid, gender: '' }).errors.gender).toBeTruthy();
+    expect(validateRegistration({ ...valid, gender: '' }).valid).toBe(false);
+    expect(validateRegistration({ ...valid, gender: 'X' }).errors.gender).toBeTruthy();
+    expect(validateRegistration({ ...valid, gender: 'Աղջիկ' }).errors.gender).toBeUndefined();
   });
 });

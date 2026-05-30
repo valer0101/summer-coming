@@ -206,6 +206,8 @@ a  { color: var(--accent-dark); }
 .reg-form__status { font-weight: 700; min-height: 1.2em; }
 .reg-form__status.is-ok { color: #2f7a4d; }
 .reg-form__status.is-error { color: #c0392b; }
+.reg-form__doc { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.reg-form__doc-link { font-weight: 700; color: var(--accent-dark); text-decoration: underline; }
 
 /* ============ FOOTER ============ */
 .site-footer { background: #2b2419; color: #f4ece0; padding-block: 48px 28px; margin-top: 20px; }

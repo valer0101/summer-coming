@@ -13,7 +13,7 @@
 // (Создайте папку, откройте её, скопируйте ID из URL после /folders/.)
 var DRIVE_FOLDER_ID = 'PASTE_PRIVATE_DRIVE_FOLDER_ID';
 
-var HEADERS = ['Ամսաթիվ', 'Երեխա', 'Տարիք', 'Ծնող', 'Հեռախոս',
+var HEADERS = ['Ամսաթիվ', 'Երեխա', 'Տարիք', 'Սեռ', 'Ծնող', 'Հեռախոս',
                'Բնակավայր', 'Առողջություն', 'Մեկնաբանություն', 'Վկայական', 'Համաձայնություն'];
 
 function doPost(e) {
@@ -39,6 +39,7 @@ function doPost(e) {
       new Date(),
       data.childName || '',
       data.age || '',
+      data.gender || '',
       data.parentName || '',
       data.parentPhone || '',
       data.location || '',

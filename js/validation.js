@@ -2,12 +2,14 @@
 // Imported by both the browser (js/main.js) and Vitest.
 
 export const ALLOWED_LOCATIONS = ['Աշտարակ', 'Կոշ', 'Օհանավան'];
+export const ALLOWED_GENDERS   = ['Տղա', 'Աղջիկ'];
 
 const MSG = {
   required: 'Պարտադիր դաշտ է',
   age:      'Տարիքը պետք է լինի 8–13',
   phone:    'Մուտքագրեք վավեր հեռախոսահամար',
   location: 'Ընտրեք՝ Աշտարակ, Կոշ կամ Օհանավան',
+  gender:   'Ընտրեք սեռը',
   consent:  'Անհրաժեշտ է ծնողի համաձայնությունը',
 };
 
@@ -28,6 +30,8 @@ export function validateRegistration(data = {}) {
   if (digits.length < 6) errors.parentPhone = MSG.phone;
 
   if (!ALLOWED_LOCATIONS.includes(data.location)) errors.location = MSG.location;
+
+  if (!ALLOWED_GENDERS.includes(data.gender)) errors.gender = MSG.gender;
 
   if (data.consent !== true) errors.consent = MSG.consent;
 
