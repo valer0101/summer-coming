@@ -97,11 +97,14 @@ function initRegForm() {
       }
       // Apps Script Web Apps reject custom JSON headers (CORS preflight);
       // send as text/plain to stay a "simple request".
-      await fetch(REGISTRATION_ENDPOINT, {
+      const resp = await fetch(REGISTRATION_ENDPOINT, {
         method: 'POST',
         body: JSON.stringify(payload),
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       });
+      // fetch only rejects on network errors; a 4xx/5xx still resolves.
+      // Treat a readable non-OK response as a failure (opaque responses have ok=false by design — allow those).
+      if (!resp.ok && resp.type !== 'opaque') throw new Error('HTTP ' + resp.status);
       form.reset();
       status.textContent = 'Շնորհակալություն։ Ձեր հայտը ստացվեց — մենք կզանգահարենք։';
       status.classList.add('is-ok');

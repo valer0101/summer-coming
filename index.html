@@ -211,33 +211,33 @@
     <form id="regForm" class="reg-form" novalidate>
       <div class="field">
         <label for="childName">Երեխայի անուն, ազգանուն *</label>
-        <input id="childName" name="childName" type="text" autocomplete="name">
-        <small class="error" data-error-for="childName"></small>
+        <input id="childName" name="childName" type="text" autocomplete="name" aria-describedby="err-childName">
+        <small class="error" id="err-childName" data-error-for="childName"></small>
       </div>
       <div class="field">
         <label for="age">Տարիք (8–13) *</label>
-        <input id="age" name="age" type="number" min="8" max="13" inputmode="numeric">
-        <small class="error" data-error-for="age"></small>
+        <input id="age" name="age" type="number" min="8" max="13" inputmode="numeric" aria-describedby="err-age">
+        <small class="error" id="err-age" data-error-for="age"></small>
       </div>
       <div class="field">
         <label for="parentName">Ծնողի անուն *</label>
-        <input id="parentName" name="parentName" type="text">
-        <small class="error" data-error-for="parentName"></small>
+        <input id="parentName" name="parentName" type="text" aria-describedby="err-parentName">
+        <small class="error" id="err-parentName" data-error-for="parentName"></small>
       </div>
       <div class="field">
         <label for="parentPhone">Ծնողի հեռախոս *</label>
-        <input id="parentPhone" name="parentPhone" type="tel" inputmode="tel" autocomplete="tel">
-        <small class="error" data-error-for="parentPhone"></small>
+        <input id="parentPhone" name="parentPhone" type="tel" inputmode="tel" autocomplete="tel" aria-describedby="err-parentPhone">
+        <small class="error" id="err-parentPhone" data-error-for="parentPhone"></small>
       </div>
       <div class="field">
         <label for="location">Որտեղի՞ց եք *</label>
-        <select id="location" name="location">
+        <select id="location" name="location" aria-describedby="err-location">
           <option value="">— Ընտրեք —</option>
           <option value="Աշտարակ">Աշտարակ</option>
           <option value="Կոշ">Կոշ</option>
           <option value="Օհանավան">Օհանավան</option>
         </select>
-        <small class="error" data-error-for="location"></small>
+        <small class="error" id="err-location" data-error-for="location"></small>
       </div>
       <div class="field">
         <label for="health">Առողջություն / ալերգիա</label>
@@ -253,8 +253,8 @@
         <textarea id="comment" name="comment" rows="2"></textarea>
       </div>
       <div class="field field--check">
-        <label><input id="consent" name="consent" type="checkbox"> Ես՝ որպես ծնող, համաձայն եմ երեխայի մասնակցությանը *</label>
-        <small class="error" data-error-for="consent"></small>
+        <label><input id="consent" name="consent" type="checkbox" aria-describedby="err-consent"> Ես՝ որպես ծնող, համաձայն եմ երեխայի մասնակցությանը *</label>
+        <small class="error" id="err-consent" data-error-for="consent"></small>
       </div>
 
       <button type="submit" class="btn btn--primary reg-form__submit">Ուղարկել հայտը</button>
